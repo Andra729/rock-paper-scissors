@@ -57,3 +57,16 @@ h3 {
 a, a:hover {
     color: #FFD662FF;
 }
+
+.choices{
+    text-align: center;
+}
+
+.choice{
+ display: inline;
+}
+
+img{
+    max-width: 22%;
+    height: auto;
+}
