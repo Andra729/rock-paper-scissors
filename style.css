@@ -58,8 +58,15 @@ a, a:hover {
     color: #FFD662FF;
 }
 
-.choices{
+#page-container{
     text-align: center;
+    padding-top: 5%;
+}
+
+.result, #msgs{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 1.25rem;
 }
 
 .choice{
@@ -69,4 +76,11 @@ a, a:hover {
 img{
     max-width: 22%;
     height: auto;
+}
+
+@media only screen and (min-width: 600px){
+    img{
+        max-width: 10%;
+        height: auto;
+    }
 }
