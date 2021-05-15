@@ -60,7 +60,7 @@ a, a:hover {
 
 #page-container{
     text-align: center;
-    padding-top: 5%;
+    padding-top: 20%;
 }
 
 .result, #msgs{
@@ -78,9 +78,86 @@ img{
     height: auto;
 }
 
-@media only screen and (min-width: 600px){
+.score-board-inner {
+    position: relative;
+}
+
+.score-board-inner {
+    border: 3px solid white;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px 0;
+    max-width: 40%;
+}
+
+.score-board-inner > * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: medium;
+}
+
+.badge {
+    background: #e2584d;
+    padding: 7px;
+}
+
+#user-score, #comp-score {
+    font-size:xx-large;
+}
+
+#user-label {
+    position: absolute;
+    top: 15%;
+    left: -20%;
+}
+
+#comp-label {
+    position: absolute;
+    top: 15%;
+    right: -30%;
+}
+
+@media only screen and (min-width: 700px){
+    #page-container{
+        padding-top: 10%;
+    }
+    
     img{
         max-width: 10%;
         height: auto;
+    }
+
+    .score-board-inner {
+        max-width: 20%;
+    }
+
+    .score-board-inner > * {
+        font-size: large;
+    }
+
+    #user-label {
+        position: absolute;
+        top: 15%;
+        left: -15%;
+    }
+    
+    #comp-label {
+        position: absolute;
+        top: 15%;
+        right: -30%;
+    }
+}
+
+@media only screen and (min-width: 1300px){
+    #user-label {
+        position: absolute;
+        top: 15%;
+        left: -10%;
+    }
+    
+    #comp-label {
+        position: absolute;
+        top: 15%;
+        right: -15%;
     }
 }
