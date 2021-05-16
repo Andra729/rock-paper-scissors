@@ -119,7 +119,7 @@ img{
     padding: 7px;
 }
 
-#user-score, #comp-score {
+#user-score, #comp-score, #colon {
     font-size:xx-large;
 }
 
