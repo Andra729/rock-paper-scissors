@@ -21,8 +21,6 @@ if( h <= 780 ) {
 var playerScore = 0;
 var computerScore = 0;
 
-console.log( typeof(playerScore));
-
 var playerChoice, compChoice;
 
 var playerScore_span = document.getElementById("user-score");
@@ -41,18 +39,30 @@ function newScores() {
 newScores();
 
 /************************************************
- * Event listeners + Player choice
+ * Event listeners of Player choice
  ************************************************/
 rock.addEventListener('click', () => {
     game("rock");
+    setTimeout( () => {
+        result_p.textContent = "Make your next move!",
+        rock.style.removeProperty("animation")
+    }, 3900 )
 });
 
 paper.addEventListener('click', () => {
     game("paper");
+    setTimeout( () => {
+        result_p.textContent = "Make your next move!",
+        paper.style.removeProperty("animation")
+    }, 3900 )
 });
 
 scissors.addEventListener('click', () => {
-    game("scissors");
+    game("scissors");    
+    setTimeout( () => {
+        result_p.textContent = "Make your next move!",
+        scissors.style.removeProperty("animation")
+    }, 3900 )
 });
 
 /************************************************
@@ -60,7 +70,14 @@ scissors.addEventListener('click', () => {
  ************************************************/
 function getCompChoice() {
     var choices = ["rock", "paper", "scissors"];
-    return  choices[Math.floor( Math.random() * 3 )];
+    return choices[Math.floor( Math.random() * 3 )];
+}
+
+/************************************************
+ * Capitalize
+ ************************************************/
+function capitalizeFirstLetter(string) {
+    return string[0].toUpperCase() + string.slice(1);
 }
 
 /************************************************
@@ -73,14 +90,14 @@ function getCompChoice() {
         case "rockrock":
         case "paperpaper":
         case "scissorsscissors":
-            result_p.textContent = "It's even. No one gets point.";
+            result_p.textContent = "It's a draw. No one gets point.";
             document.getElementById(playerChoice).style.cssText = "animation: blink2 1.1s; animation-iteration-count: 3;";
             break;
     
         case "scissorsrock":
         case "rockpaper":
         case "paperscissors":
-            result_p.textContent = "Computer's " + compChoice + " beats Player's " + playerChoice + ".\nYou win.";
+            result_p.textContent = capitalizeFirstLetter(compChoice) + " beats Player's " + playerChoice + ". You lose.";
             document.getElementById(playerChoice).style.cssText = "animation: blink1 1.1s; animation-iteration-count: 3;";
             computerScore++;
             newScores();
@@ -89,7 +106,7 @@ function getCompChoice() {
         case "rockscissors":
         case "paperrock":
         case "scissorspaper":
-            result_p.textContent = "Player's " + playerChoice + " beats " + "Computer's " + compChoice + ".\nYou win.";
+            result_p.textContent = "Player's " + playerChoice + " beats " + compChoice + ".\nYou win.";
             document.getElementById(playerChoice).style.cssText = "animation: blink3 1.1s; animation-iteration-count: 3;";
             playerScore++;
             newScores();
