@@ -18,8 +18,10 @@ if( h <= 780 ) {
 /************************************************
  * DOM cache
  ************************************************/
-const playerScore = 0;
-const computerScore = 0;
+var playerScore = 0;
+var computerScore = 0;
+
+console.log( typeof(playerScore));
 
 var playerChoice, compChoice;
 
@@ -31,8 +33,12 @@ var rock = document.getElementById("rock");
 var paper = document.getElementById("paper");
 var scissors = document.getElementById("scissors");
 
-playerScore_span.textContent = playerScore;
-computerScore_span.textContent = computerScore;
+function newScores() {
+    playerScore_span.textContent = playerScore;
+    computerScore_span.textContent = computerScore;
+}
+
+newScores();
 
 /************************************************
  * Event listeners + Player choice
@@ -57,8 +63,39 @@ function getCompChoice() {
     return  choices[Math.floor( Math.random() * 3 )];
 }
 
-console.log( getCompChoice() );
-
 /************************************************
  * Game
  ************************************************/
+ function game(playerChoice) {
+    compChoice = getCompChoice();
+
+    switch (playerChoice + compChoice) {
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+            result_p.textContent = "It's even. No one gets point.";
+            document.getElementById(playerChoice).style.cssText = "animation: blink2 1.1s; animation-iteration-count: 3;";
+            break;
+    
+        case "scissorsrock":
+        case "rockpaper":
+        case "paperscissors":
+            result_p.textContent = "Computer's " + compChoice + " beats Player's " + playerChoice + ".\nYou win.";
+            document.getElementById(playerChoice).style.cssText = "animation: blink1 1.1s; animation-iteration-count: 3;";
+            computerScore++;
+            newScores();
+            break;
+
+        case "rockscissors":
+        case "paperrock":
+        case "scissorspaper":
+            result_p.textContent = "Player's " + playerChoice + " beats " + "Computer's " + compChoice + ".\nYou win.";
+            document.getElementById(playerChoice).style.cssText = "animation: blink3 1.1s; animation-iteration-count: 3;";
+            playerScore++;
+            newScores();
+            break;
+
+        default:
+            break;
+    }
+};
