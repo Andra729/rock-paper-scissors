@@ -78,17 +78,6 @@ a, a:hover {
  -webkit-transition: transform 0.4s;
 }
 
-.choice :hover{
-  transition: transform 0.4s;
-  transform-style: preserve-3d;
-  transform: translateY(-15px);
-  
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: transform 0.4s;
-    -webkit-transform: translateY(-15px);
-}
-
-
 img{
     max-width: 22%;
     height: auto;
@@ -170,6 +159,16 @@ img{
         top: 15%;
         right: -30%;
     }
+
+    .choice :hover{
+        transition: transform 0.4s;
+        transform-style: preserve-3d;
+        transform: translateY(-15px);
+        
+          -webkit-transform-style: preserve-3d;
+          -webkit-transition: transform 0.4s;
+          -webkit-transform: translateY(-15px);
+      }
 }
 
 @media only screen and (min-width: 1300px){
@@ -184,4 +183,14 @@ img{
         top: 15%;
         right: -15%;
     }
+
+    .choice :hover{
+        transition: transform 0.4s;
+        transform-style: preserve-3d;
+        transform: translateY(-15px);
+        
+          -webkit-transform-style: preserve-3d;
+          -webkit-transition: transform 0.4s;
+          -webkit-transform: translateY(-15px);
+      }
 }

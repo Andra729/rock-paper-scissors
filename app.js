@@ -83,8 +83,9 @@ function capitalizeFirstLetter(string) {
 /************************************************
  * Game
  ************************************************/
- function game(playerChoice) {
+function game(playerChoice) {
     compChoice = getCompChoice();
+    console.log( compChoice );
 
     switch (playerChoice + compChoice) {
         case "rockrock":
@@ -110,9 +111,6 @@ function capitalizeFirstLetter(string) {
             document.getElementById(playerChoice).style.cssText = "animation: blink3 1.1s; animation-iteration-count: 3;";
             playerScore++;
             newScores();
-            break;
-
-        default:
             break;
     }
 };
